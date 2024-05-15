@@ -16,13 +16,13 @@ jobs:
         uses: actions/checkout@v4
       - name: Check file existence
         id: check_files
-        uses: thebinaryfelix/check-file-existence-action@v1
+        uses: andstor/file-existence-action@v1
         with:
-          files: 'DOCKERFILE'
-      - name: Files exist
-        if: steps.check_files.outputs.exists == 'true'
-        # Only runs if all of the files exist
-        run: echo "All files exist!"
+            files: "assets/${{ env.URL }}"
+        
+      - name: File exists
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: echo "It exists !"
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
