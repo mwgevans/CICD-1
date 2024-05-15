@@ -19,7 +19,7 @@ jobs:
         uses: andstor/file-existence-action@v1
         with:
             files: "DOCKERFILE"
-        
+            ignore_case: true
       - name: File exists
         if: steps.check_files.outputs.files_exists == 'true'
         run: echo "It exists !"
