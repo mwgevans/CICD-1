@@ -21,7 +21,7 @@ jobs:
             ignore_case: true
   build:
     needs: check
-    if: needs.check.outputs.status == 'success'
+    if: needs.check.outputs.status == 'true'
     runs-on: ubuntu-latest
     permissions:
         contents: read
