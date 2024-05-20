@@ -19,6 +19,22 @@ jobs:
           with:
             files: "DOCKERFILE"
             ignore_case: true
+  version:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.taggerDryRun.outputs.new_tag }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: '0'
+      - name: Minor version for each merge
+        id: taggerDryRun
+        uses: anothrNick/github-tag-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+          DRY_RUN: true
   build:
     needs: check
     if: needs.check.outputs.status == 'true'
