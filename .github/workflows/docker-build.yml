@@ -35,6 +35,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
           DRY_RUN: true
+          DEFAULT_BUMP: PATCH
+          INITIAL_VERSION: 1.0.0
+      - name: echo new tag
+        run: |
+          echo "The next tag version will be: ${{ steps.taggerDryRun.outputs.new_tag }}"
   build:
     needs: check
     if: needs.check.outputs.status == 'true'
