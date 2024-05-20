@@ -1,5 +1,5 @@
 name: ci
-run-name: 🦆 Build Docker Image ${{ github.repository.name }} on ${{ github.event }} 🚀
+run-name: 🦆 Build Docker Image ${{ github.repository.name }} on ${{ github.event.base_ref }} 🚀
 on:
   push:
     branches:
