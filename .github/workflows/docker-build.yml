@@ -35,7 +35,9 @@ jobs:
         id:   meta
         uses: docker/metadata-action@v5
         with: 
-          images: mwgevans/app
+          images: |
+            mwgevans/app
+            ghcr.io/mwgevans/app
           tags: |
             type=ref,event=branch
             type=ref,event=pr
