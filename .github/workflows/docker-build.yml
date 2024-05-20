@@ -60,8 +60,5 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: |
-            mwgevans/app:latest
-            mwgevans/app:1.0.0
-            ghcr.io/mwgevans/app:latest
-            ghcr.io/mwgevans/app:1.0.0     
+          tags: ${{ steps.meta.outputs.tags}}
+          labels: ${{ steps.meta.outputs.labels}}   
